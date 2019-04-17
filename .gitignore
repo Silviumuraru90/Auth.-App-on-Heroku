@@ -2,3 +2,4 @@ __pychache__/
 *.pyc
 test.txt
 .README.md.un~
+data.db
