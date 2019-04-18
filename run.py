@@ -1,4 +1,4 @@
-from app import app
+from app import app as application
 from db import db
 from flask import Flask, render_template, request
 import requests, random, string, json
