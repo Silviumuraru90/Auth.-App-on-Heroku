@@ -22,4 +22,8 @@ def result():
         result = request.form
         # Post_api.posting(result)
         # print(Post_api.posting(result))
+        # payload = {
+        # "price": thing['Price'],
+        # "store_id": thing['Id']
+        # }
   	    return render_template("result.html",result = result)
