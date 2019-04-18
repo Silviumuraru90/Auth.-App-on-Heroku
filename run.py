@@ -25,7 +25,7 @@ numCarsNorth = None
 
 @app.route('/info.json', methods=['GET', 'POST'])
 def getInfo():
-    if  request.method == 'GET':
+    if  requests.method == 'GET':
         lightEast = {}
         lightWest = {}
         lightNorth = {}
@@ -44,11 +44,11 @@ def getInfo():
 @app.route('/cars', methods=['GET', 'POST'])
 def cars():
     global numCarsEast, numCarsWest, numCarsSouth, numCarsNorth
-    if request.method == 'POST':
-        numCarsEast = request.form.get('eastLightInt1', None)
-        numCarsWest = request.form.get('westLightInt1', None)
-        numCarsNorth = request.form.get('northLightInt1', None)
-        numCarsSouth = request.form.get('southLightInt1', None)
+    if requests.method == 'POST':
+        numCarsEast = requests.form.get('eastLightInt1', None)
+        numCarsWest = requests.form.get('westLightInt1', None)
+        numCarsNorth = requests.form.get('northLightInt1', None)
+        numCarsSouth = requests.form.get('southLightInt1', None)
         print(str(numCarsEast) + ' east')
         print(str(numCarsWest) + ' west')
         print(str(numCarsNorth) + ' north')
