@@ -5,3 +5,7 @@ Flask-SQLAlchemy
 uwsgi
 psycopg2
 request
+requests
+random
+string
+json
