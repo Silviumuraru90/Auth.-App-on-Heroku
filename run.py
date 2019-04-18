@@ -34,7 +34,7 @@ def result():
         "store_id": result['Id']
               }
 
-        requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps(payload), headers=headers)
+        requests.post("item/{}".format(id_generator()), data=json.dumps(payload), headers=headers)
 
 
 		return render_template("result.html",result = result)
