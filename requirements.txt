@@ -6,5 +6,3 @@ uwsgi
 psycopg2
 request
 requests
-string
-json
