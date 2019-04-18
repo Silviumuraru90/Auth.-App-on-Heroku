@@ -1,7 +1,7 @@
 from app import app
 from db import db
 from flask import Flask, render_template, request
-from APIs.post_api import Post_api
+# from APIs.post_api import Post_api
 
 db.init_app(app)
 
