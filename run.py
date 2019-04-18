@@ -31,7 +31,7 @@ def result():
 		# global result_price = result['Price']
 		# global result_id = result['Id']
 
-        requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":result["Price"], "store_id":result["Id"]}), headers={"Content-Type": "application/json"})
+        # requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":result["Price"], "store_id":result["Id"]}), headers={"Content-Type": "application/json"})
 		return render_template("result.html",result = result)
 
 
