@@ -1,6 +1,7 @@
 from app import app
 from db import db
 from flask import Flask, render_template
+import requests
 
 db.init_app(app)
 
