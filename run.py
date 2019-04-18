@@ -21,15 +21,15 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 
 headers = {"Content-Type": "application/json"}
 
-result_price
-result_id
+# result_price
+# result_id
 
 @app.route('/result',methods = ['POST', 'GET'])
 def result():
 	if request.method == 'POST':
 		result = request.form
-		global result_price = result['Price']
-		global result_id = result['Id']
+		# global result_price = result['Price']
+		# global result_id = result['Id']
 
 		return render_template("result.html",result = result)
 
