@@ -12,3 +12,45 @@ def create_tables():
 @app.route('/')
 def home():
     return render_template("home.html")
+
+
+
+
+numCarsEast = None
+numCarsWest = None
+numCarsSouth = None
+numCarsNorth = None
+
+
+@app.route('/info.json', methods=['GET', 'POST'])
+def getInfo():
+    if  request.method == 'GET':
+        lightEast = {}
+        lightWest = {}
+        lightNorth = {}
+        lightSouth = {}
+        intersection1 = {}
+        lightEast['cars'] = numCarsEast
+        lightWest['cars'] = numCarsWest
+        lightNorth['cars'] = numCarsNorth
+        lightSouth['cars'] = numCarsSouth
+        intersection1['eastLight'] = lightEast
+        intersection1['westLight'] = lightWest
+        intersection1['northLight'] = lightNorth
+        intersection1['southLight'] = lightSouth
+        return jsonify(intersection=intersection1)
+
+@app.route('/cars', methods=['GET', 'POST'])
+def cars():
+    global numCarsEast, numCarsWest, numCarsSouth, numCarsNorth
+    if request.method == 'POST':
+        numCarsEast = request.form.get('eastLightInt1', None)
+        numCarsWest = request.form.get('westLightInt1', None)
+        numCarsNorth = request.form.get('northLightInt1', None)
+        numCarsSouth = request.form.get('southLightInt1', None)
+        print(str(numCarsEast) + ' east')
+        print(str(numCarsWest) + ' west')
+        print(str(numCarsNorth) + ' north')
+        print(str(numCarsSouth) + ' south')
+        return 'done'
+    return open('./carForm.html').read()
