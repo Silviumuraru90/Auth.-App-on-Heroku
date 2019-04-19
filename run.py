@@ -28,7 +28,7 @@ def result():
         result = request.form
         apicall(result['Price'], result['Id'])
         # return render_template("result.html",result = result)
-
+# not working
 def apicall(**kwargs):
     requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":price, "store_id":id}), headers={"Content-Type": "application/json"})
 
