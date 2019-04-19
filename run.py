@@ -27,7 +27,7 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 
 
 
-@app.route('/result')
+@app.route('/result',methods = ['POST', 'GET'])
 def result():
     return render_template("result.html",result = result)
 
