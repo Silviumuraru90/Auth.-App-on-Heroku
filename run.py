@@ -26,12 +26,8 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 def result():
     if request.method == 'POST':
         result = request.form
-        apicall(kwargs1=result['Price'],kwargs2=result['Id'])
+        requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":result['Price'], "store_id":result['Id']}), headers={"Content-Type": "application/json"})
         # return render_template("result.html",result = result)
-# not working
-def apicall(**kwargs):
-    requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":price, "store_id":id}), headers={"Content-Type": "application/json"})
-
 
 
 
