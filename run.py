@@ -16,8 +16,9 @@ def student():
     if request.method == "GET":
         return render_template('home.html')
     elif request.method == "POST":
+        student = request.form
         requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":result['Price'], "store_id":result['Id']}), headers={"Content-Type": "application/json"})
-        return render_template("result.html",result = result)
+        return render_template("result.html",result = student)
 
 
 def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
