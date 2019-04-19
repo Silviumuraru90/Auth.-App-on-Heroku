@@ -26,7 +26,7 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 def result():
     if request.method == 'POST':
         result = request.form
-        apicall(result['Price'], result['Id'])
+        apicall(kwargs1=result['Price'],kwargs2=result['Id'])
         # return render_template("result.html",result = result)
 # not working
 def apicall(**kwargs):
