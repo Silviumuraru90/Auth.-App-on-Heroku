@@ -11,7 +11,7 @@ def create_tables():
     db.create_all()
 
 
-@app.route('/', methods = ['POST', 'GET'])
+@app.route('/')
 def student():
         return render_template('home.html')
 
@@ -21,7 +21,7 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 
 #headers = {"Content-Type": "application/json"}
 
-
+@app.route('/', methods = ['POST', 'GET'])
 def result():
     if request.method == 'POST':
         result = request.form
