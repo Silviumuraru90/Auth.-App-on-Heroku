@@ -21,7 +21,7 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 
 #headers = {"Content-Type": "application/json"}
 
-@app.route('/', methods = ['POST', 'GET'])
+@app.route('/result', methods = ['POST', 'GET'])
 def result():
     if request.method == 'POST':
         result = request.form
