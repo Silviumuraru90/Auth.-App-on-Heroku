@@ -3,16 +3,16 @@
 	<body>
     <br><br><br><br>
     <center>
-	    <!--
-		<table border = 1>
-         {% for key, value in result.items() %}
-            <tr>
-               <th> {{ key }} </th>
-               <td> {{ value }} </td>
-            </tr>
-         {% endfor %}
-		</table>
-	-->
+	{% if result %}
+			<table border = 1>
+         	{% for key, value in result.items() %}
+            	<tr>
+               	<th> {{ key }} </th>
+               	<td> {{ value }} </td>
+            	</tr>
+         	{% endfor %}
+			</table>
+	{% endif %}
 	<br>
 		<h2>Your values might have been saved. Thank you!</h2>
     <br><br>
