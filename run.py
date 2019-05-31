@@ -31,8 +31,7 @@ def result():
             status = 200
         )
         return render_template('result.html', result=result)
-    if request.method == 'GET':
-        return render_template('result.html', result=result)
+
 
 
 
