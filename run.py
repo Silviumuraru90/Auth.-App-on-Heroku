@@ -27,7 +27,7 @@ def result():
         result = request.form
         requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":result['Price'], "store_id":result['Id']}), headers={"Content-Type": "application/json"})
     if request.method == 'GET':
-        return render_template("result.html",result = result)
+        return render_template("result.html")
 
 
 
