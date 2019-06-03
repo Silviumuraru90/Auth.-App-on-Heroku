@@ -21,10 +21,12 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 
 #headers = {"Content-Type": "application/json"}
 
+global result = dict()
+
 @app.route('/result', methods = ['POST', 'GET'])
 def result():
     if request.method == 'POST':
-        global result = request.form
+        result = request.form
         requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":result['Price'], "store_id":result['Id']}), headers={"Content-Type": "application/json"})
     return render_template("result.html",result = result)
 
