@@ -31,7 +31,7 @@ def result():
     global a
     if request.method == 'POST':
         result = request.form
-        # functie(result)
+        functie(result)
         a = result
     return redirect("/result", code=302)
     # return render_template("result.html",result = a)
