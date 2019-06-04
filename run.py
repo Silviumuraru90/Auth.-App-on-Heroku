@@ -32,7 +32,7 @@ def result():
     if request.method == 'POST':
         result = request.form
         functie(result)
-        global a = result
+        a = result
     return render_template("result.html",result = a)
 
     
