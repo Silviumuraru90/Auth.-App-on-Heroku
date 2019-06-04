@@ -33,7 +33,8 @@ def result():
         result = request.form
         # functie(result)
         a = result
-    return render_template("result.html",result = a)
+    return redirect("/result", code=302)
+    # return render_template("result.html",result = a)
     
     
     
