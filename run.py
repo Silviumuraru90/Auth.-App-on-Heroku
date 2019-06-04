@@ -29,7 +29,7 @@ a = dict()
 @app.route('/result', methods = ['POST', 'GET'])
 def result():
     global a
-    if request.method == 'GET':
+    if request.method == 'POST':
         result = request.form
         functie(result)
         a = result
