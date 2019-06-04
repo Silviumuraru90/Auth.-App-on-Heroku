@@ -13,7 +13,7 @@ def create_tables():
 
 @app.route('/')
 def student():
-        # return render_template('home.html')
+    return render_template('home.html')
 
 
 def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
