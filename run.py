@@ -33,7 +33,7 @@ def result():
         result = request.form
         functie(result)
         a = result
-    return redirect("/result", code=302)
+    return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
     # return render_template("result.html",result = a)
     
     
