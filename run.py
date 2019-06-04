@@ -22,7 +22,7 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 #headers = {"Content-Type": "application/json"}
 
 def functie(x):
-    requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
+    return requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
    
 a = dict()
 
