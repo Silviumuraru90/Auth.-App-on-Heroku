@@ -22,14 +22,14 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 #headers = {"Content-Type": "application/json"}
 
 def functie(x):
-    requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":result['Price'], "store_id":result['Id']}), headers={"Content-Type": "application/json"})
+    requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
    
 
 @app.route('/result', methods = ['POST', 'GET'])
 def result():
     if request.method == 'POST':
         result = request.form
-        functie(request.form)
+        functie(result)
         return render_template("result.html",result = result)
 
     
