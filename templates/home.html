@@ -45,7 +45,7 @@ button:hover {
 }
 
 img.avatar {
-  width: 40%;
+  width: 30%;
   border-radius: 50%;
 }
 
@@ -106,6 +106,10 @@ img.avatar {
 
 /* For small screens */
 @media screen and (max-width: 300px) {
+  img.avatar {
+    width: 30%;
+    border-radius: 50%;
+  }
   .form {
     display: none;
     position: fixed;
@@ -119,12 +123,11 @@ img.avatar {
     background-color: rgba(0,0,0,0.4);
     padding-top: 70px;
   }
-
   .form-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto;
     border: 1px solid #888;
-    width: 95%;
+    width: 90%;
   }
   .cancelbtn {
      width: 100%;
@@ -142,9 +145,9 @@ img.avatar {
 
 <div id="id01" class="form">
 
-  <form class="form-content animate" action="http://ecnaoptriha.herokuapp.com/result" method = "POST">
+  <form class="form-content animate" action="https://ecnaoptriha.herokuapp.com/result" method = "POST">
     <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Form">&times;</span>
       <img src="https://ok4static.oktacdn.com/bc/image/fileStoreRecord?id=fs02s6chp3cyZcj5A1t7" alt="Avatar" class="avatar">
     </div>
 
