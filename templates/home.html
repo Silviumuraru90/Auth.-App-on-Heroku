@@ -30,11 +30,12 @@ button:hover {
 
 .cancelbtn {
   width: auto;
+  margin-right: 40px;
   padding: 10px 18px;
   background-color: #f44336;
 }
 
-/* Center the image and position the close button */
+
 .imgcontainer {
   text-align: center;
   margin: 24px 0 12px 0;
@@ -50,28 +51,27 @@ img.avatar {
   padding: 16px;
 }
 
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+.form {
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 70px;
 }
 
-.modal-content {
+.form-content {
   background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  margin: 5% auto 15% auto;
   border: 1px solid #888;
-  width: 60%; /* Could be more or less, depending on screen size */
+  width: 60%;
 }
 
-/* The Close Button (x) */
 .close {
   position: absolute;
   right: 25px;
@@ -87,10 +87,9 @@ img.avatar {
   cursor: pointer;
 }
 
-/* Add Zoom Animation */
 .animate {
   -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
+  animation: animatezoom 0.9s
 }
 
 @-webkit-keyframes animatezoom {
@@ -103,12 +102,8 @@ img.avatar {
   to {transform: scale(1)}
 }
 
-/* Change styles for span and cancel button on extra small screens */
+/* For small screens */
 @media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
   .cancelbtn {
      width: 100%;
   }
@@ -123,12 +118,12 @@ img.avatar {
 
 </center>
 
-<div id="id01" class="modal">
+<div id="id01" class="form">
 
-  <form class="modal-content animate" action="http://ecnaoptriha.herokuapp.com/result" method = "POST">
+  <form class="form-content animate" action="http://ecnaoptriha.herokuapp.com/result" method = "POST">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+      <img src="https://ok4static.oktacdn.com/bc/image/fileStoreRecord?id=fs02s6chp3cyZcj5A1t7" alt="Avatar" class="avatar">
     </div>
 
     <div class="container">
@@ -146,16 +141,16 @@ img.avatar {
 
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Verify the current <a href="https://ecnaoptriha.herokuapp.com/items" target="_blank">values</a></span>
+      Verify the current <a href="https://ecnaoptriha.herokuapp.com/items" target="_blank">values</a></span>
     </div>
   </form>
 </div>
 
 <script>
-// Get the modal
+// Get the form
 var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
+// Closing the form by clicking in the background
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
