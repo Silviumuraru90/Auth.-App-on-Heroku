@@ -31,6 +31,7 @@ def result():
     global a
     if request.method == 'POST':
         result = request.form
+<<<<<<< HEAD
         functie(result)
         a = result
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
@@ -38,6 +39,12 @@ def result():
     
     
     
+=======
+        requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":result['Price'], "store_id":result['Id']}), headers={"Content-Type": "application/json"})
+        # return render_template("result.html",result = result)
+
+
+>>>>>>> ea362398fdb01d9c449d50178ecf0c4de942000e
 # payload = {
 # "price": result['Price'],
 # "store_id": result['Id']
