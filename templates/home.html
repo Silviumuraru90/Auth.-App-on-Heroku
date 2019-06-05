@@ -1,70 +1,167 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-  <style>
-  input[type=text], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
 
-  input[type=submit] {
-    width: 100%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+input[type=text]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 
-  input[type=submit]:hover {
-    background-color: #45a049;
-  }
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
 
-  div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
   }
-  </style>
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
 </head>
-
 <body>
 
-<br><br><br><br><br>
+<center><h2>Submit your values in the</h2>
 
-
-<center>
-  <h1><p class="Stencil"> Submit a value: </p></h1>
-  <br>
-
-
-  <div>
-    <form action="http://ecnaoptriha.herokuapp.com/result" method = "POST">
-      <label for="pricing">Price</label>
-      <input type="text" id="pricing" name="Price" placeholder="Input a price">
-
-      <!--<label for="lname">Last Name</label>
-      <input type="text" id="lname" name="Id" placeholder="Choose between 1, 3 or 4">
-      -->
-      <label for="ID">Id:</label>
-      <select id="ID" name="Id">
-        <option value="1">1</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
-
-      <input type="submit" value="Submit">
-    </form>
-  </div>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Form</button>
 
 </center>
-</body>
 
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" action="http://ecnaoptriha.herokuapp.com/result" method = "POST">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="img_avatar2.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="Price"><b>Price</b></label>
+      <input type="text" placeholder="Enter Price" name="Price" required>
+
+      <label for="Id"><b>Id</b></label>
+      <input type="text" placeholder="Input either 1, 3 or 4" name="Id" required>
+
+      <button type="submit">Send values</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember selected values
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Verify the current <a href="https://ecnaoptriha.herokuapp.com/items" target="_blank">values</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
 </html>
