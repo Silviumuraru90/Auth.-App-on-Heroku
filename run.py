@@ -24,48 +24,40 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 def functie(x):
     return requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
 
-a = ''
-
+a = dict()    
+    
 @app.route('/result', methods = ['POST', 'GET'])
 def result():
     global a
     if request.method == 'POST':
         result = request.form
+        functie(result)
         a = result
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
     return render_template("result.html",result = a)
+    
+payload = {
+"price": result['Price'],
+"store_id": result['Id']
+}
 
-def cacau():
-    global a
-    if a:
-        functie(a)
-    
-    
-    
-    
-    
-    
-# ================    
-# a = dict()    
-    
+
+
+# a = ''
+
 # @app.route('/result', methods = ['POST', 'GET'])
 # def result():
 #     global a
 #     if request.method == 'POST':
 #         result = request.form
-#         functie(result)
 #         a = result
 #     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
 #     return render_template("result.html",result = a)
-    
-# payload = {
-# "price": result['Price'],
-# "store_id": result['Id']
-#}
-# ================
 
-
-
+# def cacau():
+#     global a
+#     if a:
+#         functie(a)
 
 
 # requests.post("https://ecnaoptriha.herokuapp.com/item/klisssssda".format(id_generator()), data=json.dumps({"price":15.99, "store_id":1}), headers={"Content-Type": "application/json"})
