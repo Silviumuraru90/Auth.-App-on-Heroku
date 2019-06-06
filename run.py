@@ -39,7 +39,7 @@ def result():
 
 
 
-functie(result)
+functie(a)
  
 
     
