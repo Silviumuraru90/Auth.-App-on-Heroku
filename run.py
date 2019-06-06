@@ -25,21 +25,18 @@ def functie(x):
     return requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
 
 a = dict()
-result = dict()
 
 @app.route('/result', methods = ['POST', 'GET'])
 def result():
     global a
-    global result
     if request.method == 'POST':
         result = request.form      
         a = result
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
     return render_template("result.html",result = a)
 
-
-
-functie(a)
+b = a
+functie(b)
  
 
     
