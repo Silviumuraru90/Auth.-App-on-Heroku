@@ -36,10 +36,7 @@ def result():
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
     return render_template("result.html",result = a)
     
-payload = {
-"price": result['Price'],
-"store_id": result['Id']
-}
+
 
 
 
@@ -59,6 +56,10 @@ payload = {
 #     if a:
 #         functie(a)
 
+# payload = {
+# "price": result['Price'],
+# "store_id": result['Id']
+# }
 
 # requests.post("https://ecnaoptriha.herokuapp.com/item/klisssssda".format(id_generator()), data=json.dumps({"price":15.99, "store_id":1}), headers={"Content-Type": "application/json"})
 
