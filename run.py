@@ -30,13 +30,15 @@ result = dict()
 @app.route('/result', methods = ['POST', 'GET'])
 def result():
     global a
+    global result
     if request.method == 'POST':
         result = request.form      
         a = result
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
     return render_template("result.html",result = a)
-    
-functie(result)
+
+if result == a:
+    functie(result)
     
     
 # ================    
