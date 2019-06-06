@@ -35,9 +35,10 @@ def result():
         a = result
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
     return render_template("result.html",result = a)
-    
-    
-    
+
+
+
+
 # payload = {
 # "price": result['Price'],
 # "store_id": result['Id']
