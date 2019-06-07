@@ -40,7 +40,7 @@ api.add_resource(UserRegister, '/register')
 if __name__ == '__main__':
     from db import db
     db.init_app(app)
-    app.run(port=3000, debug=True)
+    app.run(port=80, debug=True)
 
 # Explanation is that the file that's run is assigned __main__ as a __name__
 # So, if we run another file that will be __main__ and if in that file we
