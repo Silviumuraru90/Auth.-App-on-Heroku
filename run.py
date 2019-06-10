@@ -39,7 +39,7 @@ def result():
             values = list(result.values())
         a = dict(zip(keys[:2], values[:2]))
         
-        # functie(result)
+        functie(result)
         
         # a = result
         
