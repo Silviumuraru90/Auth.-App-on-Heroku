@@ -2,6 +2,7 @@ Flask
 Flask-RESTful
 Flask-JWT
 Flask-SQLAlchemy
+Flask-Limiter
 uwsgi
 psycopg2
 request
