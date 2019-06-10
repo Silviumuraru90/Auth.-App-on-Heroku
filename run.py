@@ -51,7 +51,7 @@ def result():
         a = dict(zip(keys[:2], values[:2]))
         
         # functie(result)
-        item = ItemModel(id_generator(), **result) # '**data' is   data['price'], data['store_id']
+        item = ItemModel(id_generator(), **a) # '**data' is   data['price'], data['store_id']
         # a = result
         
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
