@@ -13,7 +13,7 @@ from resources.store import Store, StoreList
 
 
 app = Flask(__name__)
-limiter = Limiter(app, key_func=get_remote_address, default_limits=["15/hour"])
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["1000/hour"])
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 # Important to leave 'sqlite:///data.db' as well - to leave this path for local testing
 # locally will use the second value if the seond one is not to be found.
