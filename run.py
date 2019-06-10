@@ -41,8 +41,9 @@ def result():
     global a
     if request.method == 'POST':
         result = request.form
-        
-        # a = dict(zip(a.keys(),a.values())) - not a good use-case, as it cannot be sliced and have its indices used
+       
+#         a = dict(zip(a.keys(),a.values())) - not a good use-case, as it cannot be sliced and have its indices used
+#                                                otherwise it would've done the job.
         
         for elem in result:
             keys = list(result.keys())
