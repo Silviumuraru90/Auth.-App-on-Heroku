@@ -51,7 +51,7 @@ def result():
         a = dict(zip(keys[:2], values[:2]))
         
         # functie(result)
-        item = ItemModel(id_generator(), **a) # '**data' is   data['price'], data['store_id']
+        item = ItemModel(id_generator(), **a) 
         item.save_to_db()
         # a = result
         
@@ -81,5 +81,5 @@ def result():
 # }
 
 # requests.post("https://ecnaoptriha.herokuapp.com/item/klisssssda".format(id_generator()), data=json.dumps({"price":15.99, "store_id":1}), headers={"Content-Type": "application/json"})
-
+# '**data' is   data['price'], data['store_id']
 #requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps(payload), headers=headers)
