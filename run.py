@@ -21,8 +21,8 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 
 #headers = {"Content-Type": "application/json"}
 
-# def functie(x):
-#     return requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
+def functie(x):
+    return requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
 
 a = dict()    
     
@@ -34,7 +34,7 @@ def result():
         # functie(result)
         a = result
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
-    return render_template("result.html",result = a)
+    return render_template("result.html",result = a[:2])
     
 
 
