@@ -7,7 +7,7 @@
 <style>
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: url("https://source.unsplash.com/daily?abstract") no-repeat
+  background: url("https://source.unsplash.com/daily?paintings") no-repeat
   center center/cover;
   height: 900px;
 }
@@ -32,8 +32,20 @@ button:hover {
   opacity: 0.8;
 }
 .cancelbtn {
-  width: auto;
-  margin-right: 40px;
+  width: 31%;
+  margin-right: 0x;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+.button2 {
+  width: 31%;
+  margin-right: 0px;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+.button3 {
+  width: 34%;
+  margin-right: 0px;
   padding: 10px 18px;
   background-color: #f44336;
 }
@@ -236,7 +248,8 @@ input:valid {
 
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      Verify the current <a href="https://ecnaoptriha.herokuapp.com/items" target="_blank">values</a></span>
+      <a href="https://ecnaoptriha.herokuapp.com/items" target="_blank"><button type="button" class="button2">Items</button></a></span>
+      <a href="https://ecnaoptriha.herokuapp.com/stores" target="_blank"><button type="button" class="button3">Stores</button></a></span>
     </div>
   </form>
 </div>
