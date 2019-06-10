@@ -31,8 +31,18 @@ def result():
     global a
     if request.method == 'POST':
         result = request.form
+        
+        # a = dict(zip(a.keys(),a.values())) - not a good use-case, as it cannot be sliced and have its indices used
+        
+        for elem in result:
+            keys = list(result.keys())
+            values = list(result.values())
+        a = dict(zip(keys[:2], values[:2]))
+        
         # functie(result)
-        a = result[:2]
+        
+        # a = result
+        
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
     return render_template("result.html",result = a)
     
