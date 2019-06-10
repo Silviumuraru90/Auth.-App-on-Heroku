@@ -3,6 +3,12 @@ from db import db
 from flask import Flask, render_template, request, url_for, redirect
 import requests, random, string, json
 
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["500 per day", "100 per hour"])
+
+
 db.init_app(app)
 
 # before the first request runs, it's going to create the database:
@@ -25,8 +31,10 @@ def functie(x):
     return requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
 
 a = dict()    
-    
+
+
 @app.route('/result', methods = ['POST', 'GET'])
+@limiter.limit("5 per hour")
 def result():
     global a
     if request.method == 'POST':
@@ -39,7 +47,7 @@ def result():
             values = list(result.values())
         a = dict(zip(keys[:2], values[:2]))
         
-        functie(result)
+        # functie(result)
         
         # a = result
         
