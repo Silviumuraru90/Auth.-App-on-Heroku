@@ -3,6 +3,7 @@ import os                   # to have access to the environment variables
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
+from flask_limiter import Limiter
 
 from security import authenticate, identity
 # now loking into the 'resources' package and then finding the file:
@@ -12,6 +13,7 @@ from resources.store import Store, StoreList
 
 
 app = Flask(__name__)
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["15/hour"])
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 # Important to leave 'sqlite:///data.db' as well - to leave this path for local testing
 # locally will use the second value if the seond one is not to be found.
