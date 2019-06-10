@@ -32,9 +32,9 @@ def result():
     if request.method == 'POST':
         result = request.form
         # functie(result)
-        a = result
+        a = result[:2]
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
-    return render_template("result.html",result = a[:2])
+    return render_template("result.html",result = a)
     
 
 
