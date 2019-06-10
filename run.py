@@ -52,6 +52,7 @@ def result():
         
         # functie(result)
         item = ItemModel(id_generator(), **a) # '**data' is   data['price'], data['store_id']
+        item.save_to_db()
         # a = result
         
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
