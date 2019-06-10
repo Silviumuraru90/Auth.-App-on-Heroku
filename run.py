@@ -6,7 +6,7 @@ import requests, random, string, json
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
-limiter = Limiter(app, key_func=get_remote_address, default_limits=["500 per day", "100 per hour"])
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["500 per day", "25 per hour"])
 
 
 db.init_app(app)
