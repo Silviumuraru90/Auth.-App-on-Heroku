@@ -4,6 +4,7 @@ from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
 from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 from security import authenticate, identity
 # now loking into the 'resources' package and then finding the file:
