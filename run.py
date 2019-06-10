@@ -3,6 +3,8 @@ from db import db
 from flask import Flask, render_template, request, url_for, redirect
 import requests, random, string, json
 
+from models.item import ItemModel
+
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
@@ -27,8 +29,8 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 
 #headers = {"Content-Type": "application/json"}
 
-def functie(x):
-    return requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
+# def functie(x):
+#     return requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
 
 a = dict()    
 
@@ -48,7 +50,7 @@ def result():
         a = dict(zip(keys[:2], values[:2]))
         
         # functie(result)
-        
+        item = ItemModel(id_generator(), **result) # '**data' is   data['price'], data['store_id']
         # a = result
         
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
