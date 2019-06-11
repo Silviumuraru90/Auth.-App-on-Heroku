@@ -3,8 +3,6 @@ Flask-RESTful
 Flask-JWT
 Flask-SQLAlchemy
 Flask-Limiter
-pypiwin32
-win32api
 uwsgi
 psycopg2
 request
