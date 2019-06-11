@@ -1,3 +1,4 @@
+import win32api
 from app import app
 from db import db
 from flask import Flask, render_template, request, url_for, redirect
@@ -25,9 +26,14 @@ def login():
     return render_template('login.html')
 
 
-@app.route('/home')
+@app.route('/home', methods=["POST", "GET"])
 def home():
-    return render_template('home.html')
+    username = request.form["username"]
+    password = request.form["password"]
+    user = UserModel.find_by_username(username)
+    if user and user.password == password:
+        return render_template('home.html')
+    return win32api.MessageBox(0, 'hello', 'title'), 400
 
 
 def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
