@@ -19,7 +19,7 @@ def create_tables():
     db.create_all()
 
 
-@app.route('/')
+@app.route('/home')
 def student():
     return render_template('home.html')
 
