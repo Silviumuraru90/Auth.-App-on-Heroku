@@ -18,9 +18,15 @@ db.init_app(app)
 def create_tables():
     db.create_all()
 
+    
+    
+@app.route('/')
+def login():
+    return render_template('login.html')
+
 
 @app.route('/home')
-def student():
+def home():
     return render_template('home.html')
 
 
