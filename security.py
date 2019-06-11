@@ -1,4 +1,4 @@
-# we can import User as the 'user.py' is within the same directory as this None
+# we can import User as the 'user.py' is within the same directory as this one
 
 from models.user import UserModel
 from werkzeug.security import safe_str_cmp
