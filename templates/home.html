@@ -66,6 +66,13 @@ img.avatar {
   background-color:#000000";
   padding: 16px;
   font-style: italic;
+  color: lightgreen;
+  text-align: right;
+}
+.signaturename {
+  background-color:#000000";
+  padding: 16px;
+  font-style: italic;
   color: green;
   text-transform: capitalize;
   text-align: right;
@@ -260,7 +267,10 @@ input:valid {
       <a href="https://ecnaoptriha.herokuapp.com/stores" target="_blank"><button type="button" class="button3">Stores</button></a></span>
     </div>
     <div class="signature">
-      Signed in as {{user}}.  
+      Signed In as 
+      <font class="signaturename">
+        {{user}}.  
+      </font>
     </div>
   </form>
 </div>
