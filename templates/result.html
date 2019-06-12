@@ -1,22 +1,43 @@
 <!doctype html>
 <html>
-	<body>
-    <br><br><br><br>
-    <center>
-		<table border = 1>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>	
+	
+<body>
+<br><br><br><br>
+<center>
+	<table border = 1>
          {% for key, value in result.items() %}
             <tr>
                <th> {{ key }} </th>
                <td> {{ value }} </td>
             </tr>
          {% endfor %}
-		</table>
-	<br>
-		<h2>Your values might have been saved. Thank you!</h2>
-    <br><br>
+	</table>
+<br>
+		<h2>Your values have been saved. Thank you!</h2>
+<br><br>
 		<h3>View all items <a href="https://ecnaoptriha.herokuapp.com/items">here</a>.</h3>
-	<br>
+<br>
 		<h3>View all stores <a href="https://ecnaoptriha.herokuapp.com/stores">here</a>.</h3>
-	</center>
-	</body>
+</center>
+</body>
 </html>
