@@ -1,4 +1,4 @@
-import win32api
+# import win32api
 from app import app
 from db import db
 from flask import Flask, render_template, request, url_for, redirect
@@ -19,8 +19,8 @@ db.init_app(app)
 def create_tables():
     db.create_all()
 
-    
-    
+
+
 @app.route('/')
 def login():
     return render_template('login.html')
@@ -33,7 +33,7 @@ def home():
     user = UserModel.find_by_username(username)
     if user and user.password == password:
         return render_template('home.html')
-    return win32api.MessageBox(0, 'hello', 'title'), 400
+    return 400 # win32api.MessageBox(0, 'hello', 'title'), 400
 
 
 def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
@@ -44,7 +44,7 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 # def functie(x):
 #     return requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
 
-a = dict()    
+a = dict()
 
 
 @app.route('/result', methods = ['POST', 'GET'])
@@ -53,20 +53,20 @@ def result():
     global a
     if request.method == 'POST':
         result = request.form
-       
+
 #         a = dict(zip(a.keys(),a.values())) - not a good use-case, as it cannot be sliced and have its indices used
 #                                                otherwise it would've done the job.
-        
+
         for elem in result:
             keys = list(result.keys())
             values = list(result.values())
         a = dict(zip(keys[:2], values[:2]))
-        
+
         # functie(result)
-        item = ItemModel(id_generator(), **a) 
+        item = ItemModel(id_generator(), **a)
         item.save_to_db()
         # a = result
-        
+
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
     return render_template("result.html",result = a)
 
