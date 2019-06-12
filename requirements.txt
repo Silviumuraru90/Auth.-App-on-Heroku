@@ -4,7 +4,6 @@ Flask-JWT
 Flask-SQLAlchemy
 Flask-Limiter
 uwsgi
-win32api
 psycopg2
 request
 requests
