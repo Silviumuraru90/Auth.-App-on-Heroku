@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, url_for, redirect
 import requests, random, string, json
 
 from models.item import ItemModel
+from models.user import UserModel
 
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
