@@ -8,9 +8,12 @@ Flask-based app. Libraries used:
 => Flask
 => Flask-RESTful
 => Flask-JWT
+=> Flask-Limiter
 => Flask-SQLAlchemy
 => uwsgi
 => psycopg2
+=> request
+=> requests
 ```
 
 
