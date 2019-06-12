@@ -33,7 +33,7 @@ def home():
     password = request.form["password"]
     user = UserModel.find_by_username(username)
     if user and user.password == password:
-        return render_template('home.html')
+        return render_template('home.html', user = username)
     # raise Exception('Sign In failed!')
     return render_template('login.html'), 400 # win32api.MessageBox(0, 'hello', 'title')
 
