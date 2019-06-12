@@ -1,4 +1,4 @@
-# import win32api
+import win32api
 from app import app
 from db import db
 from flask import Flask, render_template, request  # , url_for, redirect
@@ -34,8 +34,8 @@ def home():
     user = UserModel.find_by_username(username)
     if user and user.password == password:
         return render_template('home.html')
-    raise Exception('I failed!')
-    # return 400 # win32api.MessageBox(0, 'hello', 'title'), 400
+    # raise Exception('Sign In failed!')
+    return win32api.MessageBox(0, 'hello', 'title')
 
 
 def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
