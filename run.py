@@ -82,11 +82,7 @@ def result():
 #     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
 #     return render_template("result.html",result = a)
 
-<<<<<<< HEAD
 # def cacau():
-=======
-# def ceva():
->>>>>>> 45c85cb8de9a09ad9fa78cc92db2a353b720b336
 #     global a
 #     if a:
 #         functie(a)
