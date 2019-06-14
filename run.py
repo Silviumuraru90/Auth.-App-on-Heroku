@@ -27,6 +27,13 @@ def login():
     return render_template('login.html')
 
 
+
+# @app.route('/register', methods=["POST", "GET"])
+# def register():
+
+
+
+
 @app.route('/home', methods=["POST", "GET"])
 def home():
     username = request.form["username"]
