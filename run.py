@@ -28,8 +28,9 @@ def login():
 
 
 
-# @app.route('/register', methods=["POST", "GET"])
-# def register():
+@app.route('/register', methods=["POST", "GET"])
+def register():
+    return render_template('')
 
 
 
