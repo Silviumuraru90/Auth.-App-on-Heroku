@@ -3,46 +3,80 @@
     <title>
         Login to ecnaoptriha
     </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <style>
-input.MyButton {
-width: 300px;
-padding: 20px;
-cursor: pointer;
-font-weight: bold;
-font-size: 150%;
-background: #3366cc;
-color: #fff;
-border: 1px solid #3366cc;
-border-radius: 10px;
+input[type=text]{
+  width: 95%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
 }
-input.MyButton:hover {
-color: #ffff00;
-background: #000;
-border: 1px solid #fff;
+input[type="text"]::placeholder {
+  text-align: center;
+}
+input[type=password]{
+  width: 95%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+input[type="password"]::placeholder {
+  text-align: center;
+}
+.form {
+  width: 50%;
+  align-content: center;
+  background-color: grey;
+  padding-top: 5px;
+}
+.form2 {
+  width: 50%;
+  align-content: center;
+  background-color: grey;
+  padding-top: 5px;
+
 }
 </style>
 
   </head>
   <body>
+  <center>
      <div id="container">
       <div class="form">
-        <h1>Sign In</h1>
+        <h1><center>Sign In</center></h1>
         <form action="https://ecnaoptriha.herokuapp.com/home" method="POST">
+        <div class="w3-bar w3-black">
+        <center>
           <div class="form2">
-            <label for="username">Username</label>
-            <input type="text" name="username" id="username" />
+            <label for="username"></label>
+            <input type="text" name="username" id="username" placeholder="Username" />
           </div>
+         </center>
+         <center>
           <div class="form2">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" />
+            <label for="password"></label>
+            <input type="password" name="password" id="password" placeholder="Password" />
           </div>
-          <button formaction="https://ecnaoptriha.herokuapp.com/home">Sign In</button>
+         </center>
+          <button class="w3-button w3-left" formaction="https://ecnaoptriha.herokuapp.com/home">Sign In</button>
+
         </form>
+
         <form>
-            <input class="MyButton" type="button" value="Register" onclick="window.location.href='https://ecnaoptriha.herokuapp.com/register'" />
+            <input class="w3-button w3-right" type="button" value="Register" onclick="window.location.href='https://ecnaoptriha.herokuapp.com/register'" />
         </form>
       </div>
     </div>
+    </center>
   </body>
 </html>
