@@ -29,6 +29,7 @@ def login():
 
 
 @app.route('/register', methods=["POST", "GET"])
+@limiter.limit("10 per hour")
 def register():
     return render_template('register.html')
 
