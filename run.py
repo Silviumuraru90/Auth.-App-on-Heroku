@@ -1,8 +1,8 @@
 # import win32api
 from app import app
 from db import db
-from flask import Flask, render_template, request  # , url_for, redirect
-import requests, random, string, json
+from flask import render_template, request  # ,Flask, url_for, redirect
+import random, string  # json, requests
 
 from models.item import ItemModel
 from models.user import UserModel
@@ -21,11 +21,9 @@ def create_tables():
     db.create_all()
 
 
-
 @app.route('/')
 def login():
     return render_template('login.html')
-
 
 
 @app.route('/register', methods=["POST", "GET"])
@@ -34,39 +32,40 @@ def register():
     return render_template('register.html')
 
 
-
-
 @app.route('/home', methods=["POST", "GET"])
 def home():
     username = request.form["username"]
     password = request.form["password"]
     user = UserModel.find_by_username(username)
     if user and user.password == password:
-        return render_template('home.html', user = username)
+        return render_template('home.html', user=username)
     # raise Exception('Sign In failed!')
-    return render_template('login.html'), 400 # win32api.MessageBox(0, 'hello', 'title')
+    return render_template('login.html'), 400  # win32api.MessageBox(0, 'hello', 'title')
 
 
 def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
     return ''.join(random.choice(chars) for _ in range(size))
 
-#headers = {"Content-Type": "application/json"}
+# headers = {"Content-Type": "application/json"}
 
 # def functie(x):
 #     return requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps({"price":x['Price'], "store_id":x['Id']}), headers={"Content-Type": "application/json"})
 
+
 a = dict()
 
 
-@app.route('/result', methods = ['POST', 'GET'])
+@app.route('/result', methods=['POST', 'GET'])
 @limiter.limit("10 per hour", exempt_when=lambda: request.method == 'POST')
 def result():
     global a
     if request.method == 'POST':
         result = request.form
 
-#         a = dict(zip(a.keys(),a.values())) - not a good use-case, as it cannot be sliced and have its indices used
-#                                                otherwise it would've done the job.
+#       a = dict(zip(a.keys(),a.values())) - not a good use-case, as it cannot
+#                                              be sliced and have its indices
+#                                              used otherwise it would've done
+#                                              the job.
 
         for elem in result:
             keys = list(result.keys())
@@ -79,7 +78,7 @@ def result():
         # a = result
 
     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
-    return render_template("result.html",result = a)
+    return render_template("result.html", result=a)
 
 
 # a = ''
@@ -105,4 +104,4 @@ def result():
 
 # requests.post("https://ecnaoptriha.herokuapp.com/item/klisssssda".format(id_generator()), data=json.dumps({"price":15.99, "store_id":1}), headers={"Content-Type": "application/json"})
 # '**data' is   data['price'], data['store_id']
-#requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps(payload), headers=headers)
+# requests.post("https://ecnaoptriha.herokuapp.com/item/{}".format(id_generator()), data=json.dumps(payload), headers=headers)
