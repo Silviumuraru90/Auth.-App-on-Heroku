@@ -45,8 +45,8 @@ class UserRegister(Resource):
         # user = UserModel(data['username'], data['password'])     OR
         user = UserModel(**data)
 
-        if len(user.username) != len(user.username.strip()) and len(user.password) != len(user.password.strip()):
-            return {"message": "Please do not include trailing spaces. They are permitted only within the string of chars in either username or password."}, 400
+        if len(user.username) != len(user.username.strip()) or len(user.password) != len(user.password.strip()):
+            return {"message": "Please do not include trailing spaces. Spaces are permitted only within the string of chars in either username or password."}, 400
 
         if len(user.username) not in range (5,11):
             return {"message": "The username should have in between 5 and 10 chars!"}, 400
