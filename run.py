@@ -10,7 +10,7 @@ from models.user import UserModel
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
-limiter = Limiter(app, key_func=get_remote_address, default_limits=["500 per day", "35 per hour"])
+limiter = Limiter(app, key_func=get_remote_address, default_limits=["35 per hour"])
 
 
 db.init_app(app)
@@ -27,7 +27,7 @@ def login():
 
 
 @app.route('/register', methods=["POST", "GET"])
-@limiter.limit("10 per hour")
+@limiter.limit("3 per day")
 def register():
     return render_template('register.html')
 
