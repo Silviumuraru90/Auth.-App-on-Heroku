@@ -10,7 +10,7 @@ def hasNumbers(inputString):
 def run(string):
     regex = re.compile('[@_!#$%^&*()<>?/\|}{~:,.]')
     if(regex.search(string) is None):
-        return Trues
+        return True
     return False
 
 def passuser(user, password):
