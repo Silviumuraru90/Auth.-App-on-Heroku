@@ -8,7 +8,7 @@ def hasNumbers(inputString):
     return any(char.isdigit() for char in inputString)
 
 def run(string):
-    regex = re.compile('[@_!#$%^&*()<>?/\|}{~:,.]')
+    regex = re.compile('[@_!#$%^&*()<>?/\|}{~:;,.]')
     if(regex.search(string) is None):
         return True
     return False
@@ -64,7 +64,7 @@ class UserRegister(Resource):
             return {"message": "The password should contain at least one number!"}, 400
 
         if run(user.password) is True:
-            return {"message": "The password should contain either of the following special symbols: [@_!#$%^&*()<>?/\|}{~:,.]"}, 400
+            return {"message": "The password should contain either of the following special symbols: [@_!#$%^&*()<>?/\|}{~:;,.]"}, 400
 
         if passuser(user.username, user.password) is True:
             return {"message": "Password contains parts of the username!"}, 400
