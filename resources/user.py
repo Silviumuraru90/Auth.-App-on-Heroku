@@ -1,15 +1,16 @@
 import sqlite3
 from flask_restful import Resource, reqparse
 from models.user import UserModel
+import re
 
 
 def hasNumbers(inputString):
     return any(char.isdigit() for char in inputString)
 
-def run(string): 
-    regex = re.compile('[@_!#$%^&*()<>?/\|}{~:,.]')    
-    if(regex.search(string) is None): 
-        return True
+def run(string):
+    regex = re.compile('[@_!#$%^&*()<>?/\|}{~:,.]')
+    if(regex.search(string) is None):
+        return Trues
     return False
 
 def passuser(user, password):
@@ -52,20 +53,20 @@ class UserRegister(Resource):
 
         if len(user.password) < 10:
             return {"message": "The password should have at least 10 chars!"}, 400
-        
+
         if str.islower(user.password):
             return {"message": "The password should contain uppercase chars as well!"}, 400
-        
+
         if str.isupper(user.password):
             return {"message": "The password should contain lowercase chars as well!"}, 400
-        
+
         if hasNumbers(user.password) is False:
             return {"message": "The password should contain at least one number!"}, 400
-        
+
         if run(user.password) is True:
             return {"message": """The password should contain either of the
                     following special symbols: [@_!#$%^&*()<>?/\|}{~:,.]"""}, 400
-        
+
         if passuser(user.username, user.password) is True:
             return {"message": "Password contains parts of the username!"}, 400
 
