@@ -42,13 +42,7 @@ button:hover {
   width: 31%;
   margin-right: 0px;
   padding: 10px 18px;
-  background-color: #f44336;
-}
-.button3 {
-  width: 34%;
-  margin-right: 0px;
-  padding: 10px 18px;
-  background-color: #f44336;
+  background-color: #1E69FF;
 }
 .imgcontainer {
   text-align: center;
@@ -186,7 +180,7 @@ input:valid {
   border: 1px solid #888;
   width: 63%;
 }
-} 
+}
 input:invalid {
   border: 2px dashed black;
 }
@@ -224,7 +218,7 @@ input:valid {
   </style>
 </head>
 <body>
-  
+
 <center>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Submit your values in this form</button>
@@ -255,12 +249,12 @@ input:valid {
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <a href="https://ecnaoptriha.herokuapp.com/items" target="_blank"><button type="button" class="button2">Items</button></a></span>
-      <a href="https://ecnaoptriha.herokuapp.com/stores" target="_blank"><button type="button" class="button3">Stores</button></a></span>
+      <a href="https://ecnaoptriha.herokuapp.com/stores" target="_blank"><button type="button" class="button2">Stores</button></a></span>
     </div>
     <div class="signature" style="background-color:#000000">
-      Signed In as 
+      Signed In as
       <font class="signaturename">
-        {{user}}.  
+        {{user}}.
       </font>
     </div>
   </form>
