@@ -4,7 +4,8 @@ from db import db
 from flask import render_template, request  # ,Flask, url_for, redirect
 import random, string  # json, requests
 
-from security import identity
+from security import authenticate, identity
+from flask_jwt import JWT
 
 from models.item import ItemModel
 from models.user import UserModel
@@ -40,9 +41,9 @@ def home():
     password = request.form["password"]
     user = UserModel.find_by_username(username)
     if user and user.password == password and len(user.username) in range (5,10):
-        return render_template('home.html', user=username)
+        # return render_template('home.html', user=username)
 
-        # return identity(payload)
+        return JWT(app, authenticate, identity)
 
     # raise Exception('Sign In failed!')
     return render_template('login.html'), 400  # win32api.MessageBox(0, 'hello', 'title')
