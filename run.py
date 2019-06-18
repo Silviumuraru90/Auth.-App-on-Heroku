@@ -43,7 +43,8 @@ def home():
     if user and user.password == password and len(user.username) in range (5,10):
         # return render_template('home.html', user=username)
 
-        return JWT(app, authenticate, identity)
+        jwt = JWT(app, authenticate, identity)
+        return jwt
 
     # raise Exception('Sign In failed!')
     return render_template('login.html'), 400  # win32api.MessageBox(0, 'hello', 'title')
