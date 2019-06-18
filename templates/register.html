@@ -3,8 +3,92 @@
     <title>
         Register to ecnaoptriha
     </title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+body {font-family: 'Sofia'}
+* {box-sizing: border-box;}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding-top: 30px;
+  object-fit: cover;
+}
+
+.form-inline label {
+  margin: 5px 10px 5px 0;
+}
+
+input[type="text"]::placeholder {
+  text-align: center;
+}
+input[type="password"]::placeholder {
+  text-align: center;
+}
+
+.form-inline input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.form-inline button {
+  padding: 10px 20px;
+  background-color: green;
+  border: 1px solid #ddd;
+  color: white;
+  cursor: pointer;
+}
+
+.form-inline button:hover {
+  background-color: lightgreen;
+}
+
+@media (max-width: 800px) {
+  .form-inline input {
+    margin: 10px 0;
+  }
+
+  .form-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+
+
+
+.image-container {
+  background-image: url("https://images.unsplash.com/photo-1524721696987-b9527df9e512?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80");
+  background-size: cover;
+  position: relative;
+  height: 300px;
+}
+
+.text {
+  background-color: white;
+  color: black;
+  font-size: 7vw;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+
+
+
 input.MyButton {
 width: 300px;
 padding: 20px;
@@ -24,36 +108,40 @@ border: 1px solid #fff;
 
 
 .clearfix {
-  border: 3px solid #FF0000;
+  border: 3px solid green;
   padding: 5px;
   overflow: auto;
   line-height: 110%;
 }
 .img2 {
   float: right;
+  padding-top: 13px;
 }
 
 </style>
 
   </head>
   <body>
+  <center>
      <div id="container">
-      <div class="form">
-        <h1>Register</h1>
-        <form action="https://ecnaoptriha.herokuapp.com/register" method="POST">
+      <div class="image-container">
+ 		 <div class="text">Register</div>
+      </div>
+        <form class="form-inline" action="https://ecnaoptriha.herokuapp.com/register" method="POST">
           <div class="form2">
-            <label for="username">Username required:</label>
-            <input type="text" name="username" id="username" required />
+            <label for="username">Choose a username:</label>
+            <input type="text" name="username" id="username" placeholder="Enter username" required />
           </div>
           <div class="form2">
-            <label for="password">Password required:</label>
-            <input type="password" name="password" id="password" required/>
+            <label for="password">Choose a password:</label>
+            <input type="password" name="password" id="password" placeholder="Enter password" required/>
           </div>
           <button class="MyButton" formaction="https://ecnaoptriha.herokuapp.com/register">Register</button>
         </form>
       </div>
     </div>
     <br>
+     </center>
 <div class="clearfix">
   <img class="img2" src="http://accueil-de-loisirs-bleuciel.org/img/attention.png" alt="Attention" width="170" height="170">
   Note:
