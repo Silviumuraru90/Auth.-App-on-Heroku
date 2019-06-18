@@ -40,9 +40,9 @@ def home():
     password = request.form["password"]
     user = UserModel.find_by_username(username)
     if user and user.password == password and len(user.username) in range (5,10):
-        # return render_template('home.html', user=username)
+        return render_template('home.html', user=username)
 
-        return identity(payload)
+        # return identity(payload)
 
     # raise Exception('Sign In failed!')
     return render_template('login.html'), 400  # win32api.MessageBox(0, 'hello', 'title')
