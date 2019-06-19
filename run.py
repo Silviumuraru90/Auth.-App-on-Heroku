@@ -40,7 +40,7 @@ def register():
 
 @app.route('/home', methods=["POST", "GET"])
 def home():
-    username = request.form["username"]
+    username = request.form["username"].lower()
     password = request.form["password"]
     user = UserModel.find_by_username(username)
     if user and user.password == password and len(user.username) in range (5,10):

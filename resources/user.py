@@ -43,7 +43,8 @@ class UserRegister(Resource):
             return {"message": "A user with that username already exists"}, 400
 
         # user = UserModel(data['username'], data['password'])     OR
-        user = UserModel(**data)
+        # user = UserModel(**data)
+        user = UserModel(data['username'].lower(), data['password'])
 
         if len(user.username) != len(user.username.strip()) or len(user.password) != len(user.password.strip()):
             return {"message": "Please do not include trailing spaces. Spaces are permitted only within the string of chars in either username or password."}, 400
