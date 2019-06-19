@@ -22,10 +22,25 @@ class UserModel(db.Model):
 
     @classmethod
     def find_by_username(cls, username):
-        # first username is the table's name and then the argof this method:
+        # first username is the table's name and then the arg of this method:
         return cls.query.filter_by(username=username).first()
 
 
     @classmethod
     def find_by_id(cls, _id):
         return cls.query.filter_by(id=_id).first()
+
+
+
+# class IpModel(db.Model):
+
+#     __tablename__ = 'pass'
+
+#     ip = db.Column(db.String(80))
+
+#     def __init__(self, ip):
+#         self.ip = ip
+
+#     def save_to_db(self):
+#         db.session.add(self)
+#         db.session.commit()
