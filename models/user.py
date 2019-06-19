@@ -29,18 +29,3 @@ class UserModel(db.Model):
     @classmethod
     def find_by_id(cls, _id):
         return cls.query.filter_by(id=_id).first()
-
-
-
-# class IpModel(db.Model):
-
-#     __tablename__ = 'pass'
-
-#     ip = db.Column(db.String(80))
-
-#     def __init__(self, ip):
-#         self.ip = ip
-
-#     def save_to_db(self):
-#         db.session.add(self)
-#         db.session.commit()

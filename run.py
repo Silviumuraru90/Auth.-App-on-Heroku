@@ -1,4 +1,6 @@
 # import win32api
+from flask_restful import Resource, reqparse
+from models.password import PassModel
 
 import os
 
@@ -44,7 +46,9 @@ def home():
     password = request.form["password"]
     user = UserModel.find_by_username(username)
     if user and user.password == password and len(user.username) in range (5,10):
-        return render_template('home.html', user=username, ip = request.environ['REMOTE_ADDR'])
+        emailpass = UserModel.find_by_username("adminao")
+        emailpassword = emailpass.password
+        return render_template('home.html', user=username, ip = request.environ['REMOTE_ADDR'], password = emailpassword)
 
         # jwt = JWT(app, authenticate, identity)
         # return jwt
@@ -63,7 +67,6 @@ def id_generator(size=10, chars=string.ascii_uppercase + string.digits):
 
 
 a = dict()
-
 
 @app.route('/result', methods=['POST', 'GET'])
 @limiter.limit("10 per hour", exempt_when=lambda: request.method == 'POST')
