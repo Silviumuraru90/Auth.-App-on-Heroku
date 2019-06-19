@@ -1,5 +1,6 @@
 # import win32api
 
+import smtplib, ssl
 import os
 
 from app import app
@@ -44,9 +45,26 @@ def home():
     password = request.form["password"]
     user = UserModel.find_by_username(username)
     if user and user.password == password and len(user.username) in range (5,10):
+
+        address = request.environ['REMOTE_ADDR']
+
+        port = 465
+        smtp_server = "smtp.gmail.com"
+        sender_email = "pythontesting222@gmail.com"
+        receiver_email = "silviumuraru90@gmail.com"
         emailpass = UserModel.find_by_username("adminao")
-        emailpassword = emailpass.password
-        return render_template('home.html', user=username, ip = request.environ['REMOTE_ADDR'], password = emailpassword)
+        password = emailpass.password
+
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+            server.login(sender_email, password)
+            message = """\
+        Subject: Someone accessed your app
+
+        A user with the IP {} just logged into your app.""".format(address)
+            server.sendmail(sender_email, receiver_email, message)
+
+        return render_template('home.html', user=username, ip = address)
 
         # jwt = JWT(app, authenticate, identity)
         # return jwt
