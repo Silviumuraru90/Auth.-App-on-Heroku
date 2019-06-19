@@ -46,9 +46,9 @@ def home():
     password = request.form["password"]
     user = UserModel.find_by_username(username)
     if user and user.password == password and len(user.username) in range (5,10):
-        emailpass = UserModel.find_by_username("adminao")
-        emailpassword = emailpass.password
-        return render_template('home.html', user=username, ip = request.environ['REMOTE_ADDR'], password = emailpassword)
+        # emailpass = UserModel.find_by_username("adminao")
+        # emailpassword = emailpass.password
+        return render_template('home.html', user=username, ip = request.environ['REMOTE_ADDR'])
 
         # jwt = JWT(app, authenticate, identity)
         # return jwt
