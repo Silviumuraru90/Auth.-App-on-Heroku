@@ -48,7 +48,7 @@ def home():
     user = UserModel.find_by_username(username)
     if user and user.password == password and len(user.username) in range (5,10):
 
-        address = request.remote_addr                       # request.environ['REMOTE_ADDR']
+        address = request.remote_addr      # request.environ['REMOTE_ADDR']
 
         port = 465
         smtp_server = "smtp.gmail.com"
