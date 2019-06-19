@@ -1,4 +1,7 @@
 # import win32api
+
+import os
+
 from app import app
 from db import db
 from flask import render_template, request  # ,Flask, url_for, redirect
@@ -41,7 +44,7 @@ def home():
     password = request.form["password"]
     user = UserModel.find_by_username(username)
     if user and user.password == password and len(user.username) in range (5,10):
-        return render_template('home.html', user=username)
+        return render_template('home.html', user=username, ip = request.environ['REMOTE_ADDR'])
 
         # jwt = JWT(app, authenticate, identity)
         # return jwt
