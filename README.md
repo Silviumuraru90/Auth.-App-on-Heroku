@@ -19,12 +19,10 @@ Flask-based app. Libraries used:
 
 ## Description
 
-- Rendering a store only via API.
-- Displaying 404 on root, as expected.
+- APIs
+- python backend
 
 
 ## Implementation
 
-- This project is implemented using Flask and is a REST API for a store.
-- Hosted on Heroku
-
+- This project is implemented using Flask and is a REST API for item stored in a Heroku database.
