@@ -18,7 +18,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:/
 
 
 # the following turns of the flask_sqlalchemy modification tracker
-# it does not turn of the SQLAlchemy modification tracker
+# it does not turn off the SQLAlchemy modification tracker
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'jose'
 api = Api(app)
