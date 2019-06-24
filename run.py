@@ -49,10 +49,16 @@ def home():
     if user and user.password == password and len(user.username) in range (5,10):
 
         address = request.environ.get('HTTP_X_REAL_IP')
+        
         # address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+        
         # address = request.remote_addr
+        
         # request.environ['REMOTE_ADDR']
-
+        
+        # from mod_python import apache
+        # req.get_remote_host(apache.REMOTE_NOLOOKUP)
+        
         port = 465
         smtp_server = "smtp.gmail.com"
         sender_email = "pythontesting222@gmail.com"
