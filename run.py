@@ -48,7 +48,8 @@ def home():
     user = UserModel.find_by_username(username)
     if user and user.password == password and len(user.username) in range (5,10):
 
-        address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+        address = request.environ.get('HTTP_X_REAL_IP')
+        # address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
         # address = request.remote_addr
         # request.environ['REMOTE_ADDR']
 
