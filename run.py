@@ -48,7 +48,7 @@ def home():
     user = UserModel.find_by_username(username)
     if user and user.password == password and len(user.username) in range (5,10):
 
-        address = request.environ['REMOTE_ADDR']
+#         address = request.environ['REMOTE_ADDR']
         
         # address = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
         
@@ -57,23 +57,23 @@ def home():
         # from mod_python import apache
         # req.get_remote_host(apache.REMOTE_NOLOOKUP)
         
-        port = 465
-        smtp_server = "smtp.gmail.com"
-        sender_email = "pythontesting222@gmail.com"
-        receiver_email = "silviumuraru90@gmail.com"
-        emailpass = UserModel.find_by_username("adminao")
-        password = emailpass.password
+#         port = 465
+#         smtp_server = "smtp.gmail.com"
+#         sender_email = "pythontesting222@gmail.com"
+#         receiver_email = "silviumuraru90@gmail.com"
+#         emailpass = UserModel.find_by_username("adminao")
+#         password = emailpass.password
 
-        context = ssl.create_default_context()
-        with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
-            server.login(sender_email, password)
-            message = """\
-        Subject: Someone accessed your app
+#         context = ssl.create_default_context()
+#         with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
+#             server.login(sender_email, password)
+#             message = """\
+#         Subject: Someone accessed your app
 
-        IP [{}]. User [{}] with password [{}] just logged into your app.""".format(address, user.username, password)
-            server.sendmail(sender_email, receiver_email, message)
+#         IP [{}]. User [{}] with password [{}] just logged into your app.""".format(address, user.username, password)
+#             server.sendmail(sender_email, receiver_email, message)
 
-        return render_template('home.html', user=username, ip = address)
+        return render_template('home.html', user=username)     #, ip = address)
 
         # jwt = JWT(app, authenticate, identity)
         # return jwt
