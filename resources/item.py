@@ -65,7 +65,7 @@ class Item(Resource):
         return item.json(), 201
 
 
-
+    @jwt_required()
 
     def delete(self, name):
         item = ItemModel.find_by_name(name)
