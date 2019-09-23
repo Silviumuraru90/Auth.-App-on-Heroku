@@ -25,4 +25,4 @@ Flask-based app. Libraries used:
 
 ## Implementation
 
-- This project is implemented using Flask and is a REST API for item stored in a Heroku database.
+- This project is implemented using Flask and is a REST API for items stored in a Heroku database.
