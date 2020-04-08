@@ -1,3 +1,5 @@
+[![Run on Repl.it](https://repl.it/badge/github/Silviumuraru90/Auth.-App-on-Heroku)](https://repl.it/github/Silviumuraru90/Auth.-App-on-Heroku)
+
 # Https://ecnaoptriha.herokuapp.com
 
 
@@ -26,5 +28,3 @@ Flask-based app. Libraries used:
 ## Implementation
 
 - This project is implemented using Flask and is a REST API for items stored in a Heroku database.
-
-[![Run on Repl.it](https://repl.it/badge/github/Silviumuraru90/Auth.-App-on-Heroku)](https://repl.it/github/Silviumuraru90/Auth.-App-on-Heroku)
