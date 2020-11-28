@@ -70,7 +70,7 @@ def home():
 #             message = """\
 #         Subject: Someone accessed your app
 
-#         IP [{}]. User [{}] with password [{}] just logged into your app.""".format(address, user.username, password)
+#         IP [{}]. User [{}] just logged into your app.""".format(address, user.username, password)
 #             server.sendmail(sender_email, receiver_email, message)
 
         return render_template('home.html', user=username)     #, ip = address)
